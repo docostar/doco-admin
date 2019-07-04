@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Type Question
+{% endblock %}
+{% block body %}
+    <h1>Type Question Here for {{paper.examname}}-{{paper.subject}},{{paper.exambody}}-{{paper.examdate}}</h1>
+
+    <form action="{{url_for('questionadd',paper_id=paper.paper_id)}}" method="post">
+
+        <div class="form-group">
+            <input class="form-control" name="question" placeholder="Type Question Here" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="option_a"  placeholder="Option A"  required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="option_b"  placeholder="Option B" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="option_c"  placeholder="Option C" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="option_d"  placeholder="Option D" required>
+        </div>
+        <div class="form-group">
+              <label for="sel1">Select Right Option:</label>
+                <select class="form-control" name="right_option" id="sel1">
+                    <option selected="selected">A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                  </select>
+        </div>
+
+        <div class="form-group">
+              <label for="difflevel">Select Deficullty Level:(1 to 5)</label>
+                <select class="form-control" name="difflevel" id="difflevel">
+                    <option>1</option>
+                    <option>2</option>
+                    <option selected="selected">3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+        </div>
+
+        <div class="form-group">
+            <label for="explanation">Explanation:</label>
+            <textarea class="form-control" rows="6" name="explanation" id="explanation" placeholder="(optional)"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+
+    {% if message|length > 0 %}
+      <div class="alert alert-success" role="alert">
+            {{message}}
+      </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Question Type in old paper
+{% endblock %}
+
+{% block body %}
+    <h1>List of Paper</h1>
+    <ul>
+        {% for paper in papers %}
+            <li>
+                <a href="{{ url_for('paper', paper_id=paper.paper_id) }}">
+                    {{ paper.examname }}-{{ paper.subject }},           {{paper.exambody}}::{{paper.examdate}}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {{ message }}
+{% endblock %}

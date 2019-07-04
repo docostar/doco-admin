@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Question Type
+{% endblock %}
+
+{% block body %}
+
+      <h1>Welcome Database Admin</h1>
+      {% if message|length > 0 %}
+        <div class="alert alert-success" role="alert">
+              {{message}}
+        </div>
+      {% endif %}
+
+      <form action={{url_for('oldpaper')}} message="",method="post">
+        <div class="form-group">
+            <button class="btn btn-primary">Entry in old Paper</button>
+        </div>
+      </form>
+      <form action="{{ url_for('newpaper') }}",method="get">
+        <div class="form-group">
+            <button class="btn btn-primary">Creat New Paper</button>
+        </div>
+      </form>
+{% endblock %}
