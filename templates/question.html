@@ -4,7 +4,14 @@
     Type Question
 {% endblock %}
 {% block body %}
-    <h1>Type Question Here for {{paper.examname}}-{{paper.subject}},{{paper.exambody}}-{{paper.examdate}}</h1>
+<div class="Home">
+  <form id="Home" action="{{url_for('index')}}" method="get">
+    <fieldset>
+    <button name="Home">Go to Home</button>
+    </fieldset>
+  </form>
+</div>
+    <h2>Type Question Here for {{paper.examname}}-{{paper.subject}},{{paper.exambody}}-{{paper.examdate}}</h2>
 
     <form action="{{url_for('questionadd',paper_id=paper.paper_id)}}" method="post">
 
